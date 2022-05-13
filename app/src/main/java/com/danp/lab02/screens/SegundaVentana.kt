@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -43,8 +44,17 @@ private val messagesSelva: List<MyMessage> = listOf(
 
 @Composable
 fun SegundaVentana(navController: NavController, text: String?){
+    var color_designado = Color(0xFFE01404)
+    if(text == "Costa") {
+        color_designado = Color(0xFFFFEB3B)
+    } else if(text == "Sierra") {
+        color_designado = Color(0xFFA36E20)
+    } else {
+        color_designado = Color(0xFF4CAF50)
+    }
+
     Scaffold(topBar = {
-        TopAppBar() {
+        TopAppBar(backgroundColor = color_designado) {
             Icon(imageVector = Icons.Default.ArrowBack,
                 contentDescription = "Arrow back",
                 modifier = Modifier.clickable {
@@ -52,10 +62,18 @@ fun SegundaVentana(navController: NavController, text: String?){
                 })
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = "Platos Tipicos de la " + text)
+            if(text == "Costa") {
+
+            } else if(text == "Sierra") {
+
+            } else {
+
+            }
         }
     }) {
         if(text == "Costa") {
             ListaCosta(navController, text, messagesCosta)
+
         } else if(text == "Sierra") {
             ListaSierra(navController, text, messagesSierra)
         } else {

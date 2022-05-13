@@ -18,7 +18,7 @@ import com.danp.lab02.R
 @Composable
 fun PrimeraVentana(navController: NavController){
     Scaffold(topBar = {
-        TopAppBar() {
+        TopAppBar(backgroundColor = Color(0xFFE01404)) {
             Text(text = "Regiones")
         }
     }) {
@@ -33,6 +33,32 @@ fun Contenido(navController: NavController){
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.Start
     ) {
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Button(onClick = {
+                navController.navigate(route = AppScreens.SegundaVentana.route + "/Sierra")
+            },  shape = MaterialTheme.shapes.small,
+                colors = ButtonDefaults.textButtonColors(backgroundColor = Color(0xFFA36E20))) {
+                Image(
+                    painter = painterResource(R.drawable.sierra),
+                    contentDescription = "Región Sierra",
+                    modifier = Modifier.size(192.dp)
+                )
+            }
+
+            Spacer(Modifier.size(50.dp))
+
+            Button(onClick = {
+                navController.navigate(route = AppScreens.SegundaVentana.route + "/Sierra")
+            }, shape = MaterialTheme.shapes.small,
+                colors = ButtonDefaults.textButtonColors(backgroundColor = Color(0xFFA36E20),
+                    contentColor = Color(0xFF000000))
+            ) {
+                Text ("Sierra")
+            }
+        }
         Row(
             horizontalArrangement = Arrangement.Start,
             verticalAlignment = Alignment.CenterVertically
@@ -59,34 +85,8 @@ fun Contenido(navController: NavController){
                 colors = ButtonDefaults.textButtonColors(backgroundColor = Color(0xFFFFEB3B),
                     contentColor = Color(0xFF000000)
                 ),
-                ) {
-                Text ("Costa")
-            }
-        }
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Button(onClick = {
-                navController.navigate(route = AppScreens.SegundaVentana.route + "/Sierra")
-            },  shape = MaterialTheme.shapes.small,
-                colors = ButtonDefaults.textButtonColors(backgroundColor = Color(0xFFA36E20))) {
-                Image(
-                    painter = painterResource(R.drawable.sierra),
-                    contentDescription = "Región Sierra",
-                    modifier = Modifier.size(192.dp)
-                )
-            }
-
-            Spacer(Modifier.size(50.dp))
-
-            Button(onClick = {
-                navController.navigate(route = AppScreens.SegundaVentana.route + "/Sierra")
-            }, shape = MaterialTheme.shapes.small,
-                colors = ButtonDefaults.textButtonColors(backgroundColor = Color(0xFFA36E20),
-                    contentColor = Color(0xFF000000))
             ) {
-                Text ("Sierra")
+                Text ("Costa")
             }
         }
         Row(
