@@ -6,8 +6,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.danp.lab02.navigation.AppScreens
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.danp.lab02.R
@@ -38,7 +40,10 @@ fun Contenido(navController: NavController){
             Button(onClick = {
                 navController.navigate(route = AppScreens.SegundaVentana.route + "/Costa")
             },  shape = MaterialTheme.shapes.small,
-                colors = ButtonDefaults.textButtonColors()) {
+                colors = ButtonDefaults.textButtonColors(
+                    backgroundColor = Color(0xFFFFEB3B)
+                )) {
+
                 Image(
                     painter = painterResource(R.drawable.costa),
                     contentDescription = "Región Costa",
@@ -46,10 +51,14 @@ fun Contenido(navController: NavController){
                 )
             }
 
+            Spacer(Modifier.size(50.dp))
+
             Button(onClick = {
                 navController.navigate(route = AppScreens.SegundaVentana.route + "/Costa")
             }, shape = MaterialTheme.shapes.small,
-                colors = ButtonDefaults.textButtonColors(),
+                colors = ButtonDefaults.textButtonColors(backgroundColor = Color(0xFFFFEB3B),
+                    contentColor = Color(0xFF000000)
+                ),
                 ) {
                 Text ("Costa")
             }
@@ -61,7 +70,7 @@ fun Contenido(navController: NavController){
             Button(onClick = {
                 navController.navigate(route = AppScreens.SegundaVentana.route + "/Sierra")
             },  shape = MaterialTheme.shapes.small,
-                colors = ButtonDefaults.textButtonColors()) {
+                colors = ButtonDefaults.textButtonColors(backgroundColor = Color(0xFFA36E20))) {
                 Image(
                     painter = painterResource(R.drawable.sierra),
                     contentDescription = "Región Sierra",
@@ -69,10 +78,13 @@ fun Contenido(navController: NavController){
                 )
             }
 
+            Spacer(Modifier.size(50.dp))
+
             Button(onClick = {
                 navController.navigate(route = AppScreens.SegundaVentana.route + "/Sierra")
             }, shape = MaterialTheme.shapes.small,
-                colors = ButtonDefaults.textButtonColors()
+                colors = ButtonDefaults.textButtonColors(backgroundColor = Color(0xFFA36E20),
+                    contentColor = Color(0xFF000000))
             ) {
                 Text ("Sierra")
             }
@@ -84,7 +96,7 @@ fun Contenido(navController: NavController){
             Button(onClick = {
                 navController.navigate(route = AppScreens.SegundaVentana.route + "/Selva")
             },  shape = MaterialTheme.shapes.small,
-                colors = ButtonDefaults.textButtonColors()) {
+                colors = ButtonDefaults.textButtonColors(backgroundColor = Color(0xFF4CAF50),)) {
                 Image(
                     painter = painterResource(R.drawable.selva),
                     contentDescription = "Región Costa",
@@ -92,10 +104,13 @@ fun Contenido(navController: NavController){
                 )
             }
 
+            Spacer(Modifier.size(50.dp))
+
             Button(onClick = {
                 navController.navigate(route = AppScreens.SegundaVentana.route + "/Selva")
             }, shape = MaterialTheme.shapes.small,
-                colors = ButtonDefaults.textButtonColors()
+                colors = ButtonDefaults.textButtonColors(backgroundColor = Color(0xFF4CAF50),
+                    contentColor = Color(0xFF000000))
             ) {
                 Text ("Selva")
             }
